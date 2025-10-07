@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+@theme {
+--color-background: #f6f4f0;
+--color-foreground: #0a0a0a;
+--color-card: #ffffff;
+--color-card-foreground: #0a0a0a;
+--color-popover: #ffffff;
+--color-popover-foreground: #0a0a0a;
+--color-primary: #111111;
+--color-primary-foreground: #ffffff;
+--color-secondary: #f2eee8;
+--color-secondary-foreground: #111111;
+--color-muted: #f2eee8;
+--color-muted-foreground: #7a7a7a;
+--color-accent: #f3d6b4;
+--color-accent-foreground: #111111;
+--color-destructive: #ef4444;
+--color-destructive-foreground: #ffffff;
+--color-border: #e6e0d8;
+--color-input: #e6e0d8;
+--color-ring: #111111;
+--color-chart-1: #111111;
+--color-chart-2: #ff2a2a;
+--color-chart-3: #22c55e;
+--color-chart-4: #f3d6b4;
+--color-chart-5: #475569;
+--color-sidebar: #f6f4f0;
+--color-sidebar-foreground: #3f3f3f;
+--color-sidebar-primary: #111111;
+--color-sidebar-primary-foreground: #ffffff;
+--color-sidebar-accent: #ffffff;
+--color-sidebar-accent-foreground: #111111;
+--color-sidebar-border: #e6e0d8;
+--color-sidebar-ring: #111111;
+--radius-lg: 1rem;
+--radius-md: calc(1rem - 2px);
+--radius-sm: calc(1rem - 4px);
+--animate-accordion-down: accordion-down 0.2s ease-out;
+@keyframes accordion-down {
+from { height: 0; }
+to { height: var(--radix-accordion-content-height); }
+}
+--animate-accordion-up: accordion-up 0.2s ease-out;
+@keyframes accordion-up {
+from { height: var(--radix-accordion-content-height); }
+to { height: 0; }
+}
+--color-brand: #ff2a2a;
+--color-brand-soft: #ffe1e1;
+--color-brand-contrast: #ffffff;
+--color-highlight-sand: #f3d6b4;
+--color-success: #22c55e;
+--color-success-soft: #dcfce7;
+--font-sans: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+--font-display: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+--font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+/*
+The default border color has changed to currentColor in Tailwind CSS v4,
+so we've added these compatibility styles to make sure everything still
+looks the same as it did with Tailwind CSS v3.
+If we ever want to remove these styles, we need to add an explicit border
+color utility to any element that depends on these defaults.
+*/
+@layer base {
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+border-color: #e5e5e5;
+}
+}
+@layer utilities {
+body {
+font-family: var(--font-sans);
+}
+}
+@layer base {
+:root {
+--background: var(--color-background);
+--foreground: var(--color-foreground);
+--card: var(--color-card);
+--card-foreground: var(--color-card-foreground);
+--popover: var(--color-popover);
+--popover-foreground: var(--color-popover-foreground);
+--primary: var(--color-primary);
+--primary-foreground: var(--color-primary-foreground);
+--secondary: var(--color-secondary);
+--secondary-foreground: var(--color-secondary-foreground);
+--muted: var(--color-muted);
+--muted-foreground: var(--color-muted-foreground);
+--accent: var(--color-accent);
+--accent-foreground: var(--color-accent-foreground);
+--destructive: var(--color-destructive);
+--destructive-foreground: var(--color-destructive-foreground);
+--border: var(--color-border);
+--input: var(--color-input);
+--ring: var(--color-ring);
+--chart-1: var(--color-chart-1);
+--chart-2: var(--color-chart-2);
+--chart-3: var(--color-chart-3);
+--chart-4: var(--color-chart-4);
+--chart-5: var(--color-chart-5);
+--radius: var(--radius-lg);
+--sidebar-background: var(--color-sidebar);
+--sidebar-foreground: var(--color-sidebar-foreground);
+--sidebar-primary: var(--color-sidebar-primary);
+--sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+--sidebar-accent: var(--color-sidebar-accent);
+--sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+--sidebar-border: var(--color-sidebar-border);
+--sidebar-ring: var(--color-sidebar-ring);
+}
+}
+@layer base {
+body {
+@apply bg-background text-foreground;
+}
+.container {
+margin-inline: auto;
+padding-inline: 2rem;
+}
+}
+@layer base {
+html {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 {
+font-family: var(--font-display);
+color: var(--color-foreground);
+letter-spacing: -0.01em;
+}
+h1 { font-weight: 800; line-height: 1.1; }
+h2 { font-weight: 700; line-height: 1.15; }
+h3 { font-weight: 600; line-height: 1.2; }
+h4 { font-weight: 600; line-height: 1.25; }
+p { color: var(--color-foreground); }
+small, sub, sup { color: var(--color-muted-foreground); }
+a {
+color: var(--color-foreground);
+text-decoration-color: var(--color-border);
+text-underline-offset: 3px;
+}
+mark {
+background-color: var(--color-brand);
+color: var(--color-brand-contrast);
+padding: 0.05em 0.25em;
+border-radius: 0.25rem;
+}
+hr {
+border: 0;
+height: 1px;
+background-color: var(--color-border);
+}
+.font-display { font-family: var(--font-display); }
+.font-sans { font-family: var(--font-sans); }
+.font-serif { font-family: var(--font-serif); }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
