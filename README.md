@@ -115,3 +115,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
+
+## 👤 Author
+
+Built by Girish Lade — [ladestack.in](https://ladestack.in)
